@@ -7,6 +7,8 @@ export default function FormLogin() {
   const [name, setName] = useState('')
   const [nickname, setNickname] = useState('')
   const [cpf, setCpf] = useState('')
+  const [promocoes, setPromocoes] = useState('')
+  const [novidades, setNovidades] = useState('')
 
 
   function handleFormDataGrip(e) {
@@ -26,30 +28,13 @@ export default function FormLogin() {
   }
 
   function handleChangeText(e, newState) {
+      let temporaryName = e.target.value
+      if(newState === setCpf) {
+        temporaryName = temporaryName.substr(0, 11)
+      }
 
-    let temporaryName = e.target.value
-
-    //validations without ifs, only by ternary operators: 
-    try {
-      newState === setName
-        ?
-        temporaryName = temporaryName.substr(0, 10)
-        :
-        newState === setNickname
-          ?
-          temporaryName = temporaryName.substr(0, 20)
-          :
-          newState === setCpf
-            ?
-            temporaryName = temporaryName.substr(0, 11) :
-            newState = undefined
-
-    } catch (err) {
-      throw new Error(`Todas as validações falharam, ${err}`)
+      newState(temporaryName)
     }
-
-    newState(temporaryName)
-  }
 
   return (
     <form
@@ -90,7 +75,7 @@ export default function FormLogin() {
         label="Promoções"
         control={
           <Switch
-            name="promoces"
+            name="promocoes"
             color="primary"
             defaultChecked
           />
