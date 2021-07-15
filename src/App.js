@@ -1,13 +1,17 @@
-import { Fragment } from 'react';
 import './App.css';
 import FormLogin from './components/FormLogin';
+import {Container } from '@material-ui/core'
 
 function App() {
   return (
-    <Fragment>
+    
+    
+      <Container component= "article" maxWidth="sm">
       <h1>Formulário de Cadastro</h1>
       <FormLogin />
-    </Fragment>
+
+      </Container>
+    
   );
 }
 

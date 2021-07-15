@@ -1,24 +1,53 @@
 import React from 'react';
-import { Button } from '@material-ui/core'
+import { Button, TextField, Switch, FormControlLabel } from '@material-ui/core'
 
 
 export default function FormLogin() {
   return (
     <form>
-      <label>Nome</label>
-      <input type="text" placeholder="Digite seu nome" />
+      <TextField
+        fullWidth
+        label="Nome"
+        name="Nome"
+        variant="outlined"
+        margin="normal"
+      />
 
-      <label>Sobrenome</label>
-      <input type="text" placeholder="Digite seu sobrenome" />
+      <TextField
+        fullWidth
+        label="Sobrenome"
+        name="Sobrenome"
+        variant="outlined"
+        margin="normal" />
 
-      <label>CPF</label>
-      <input type="text" placeholder="Digite seu CPF" />
+      <TextField
+        fullWidth
+        label="CPF"
+        name="CPF"
+        variant="outlined"
+        margin="normal"
+      />
 
-      <label>Promoções</label>
-      <input type="checkbox" />
+      <FormControlLabel
+        label="Promoções"
+        control={
+          <Switch
+            name="promocoes"
+            color="primary"
+            defaultChecked
+          />
+        } />
 
-      <label>Novidades</label>
-      <input type="checkbox" />
+
+      <FormControlLabel
+        label="Novidades"
+        control={
+          <Switch
+            name="novidades"
+            color="primary"
+            defaultChecked
+          />
+        } />
 
       <Button
         variant="contained"
